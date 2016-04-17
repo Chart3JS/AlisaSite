@@ -1,0 +1,31 @@
+[
+  {
+    "name": "main",
+    "selected": true,
+    "title_key": "top_title",
+    "link": {
+      "href": "#top"
+    }
+  },
+  {
+    "name": "events",
+    "title_key": "events_title",
+    "link": {
+      "href": "#events"
+    }
+  },
+  {
+    "name": "video",
+    "title_key": "video_title",
+    "link": {
+      "href": "#video"
+    }
+  },
+  {
+    "name": "contacts",
+    "title_key": "contacts_title",
+    "link": {
+      "href": "#contacts"
+    }
+  }
+]

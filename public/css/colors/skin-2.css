@@ -1,0 +1,165 @@
+.header__title p,
+.expertise .text p.primary2 a,
+.btn.btn-primary2,
+.projects .projects-type ul li a,
+.project-list__btn .btn i:after,
+.accordion a,
+.text-image-block-inner .more a,
+.skills .values .item .text h4.primary2,
+.our-team .item .share ul li a,
+.latest-tweets__slide blockquote a,
+.footer__social a,
+.footer__social a:before,
+.swiper-button-next-line,
+.swiper-button-prev-line,
+.breadcrumb > li a,
+.breadcrumb > li:after,
+.magazines__slide .text blockquote a,
+.magazines__slide .swiper-button-next:before,
+.magazines__slide .swiper-button-prev:before,
+.facts ul li .count span,
+.heading h4,
+.beauty-photoshot__client .item ul li p a,
+.blog-post__list li a,
+.blog-post__search a,
+.blog-post__search .inp,
+.comments__item_text .reply,
+.blog-post__text h2,
+p.primary2,
+.quote a,
+.input-wrap.primary2 .fa,
+.accordion-bigIcons,
+.photo-hovered-info .item .name h4,
+.photo-hovered-info .item .name p,
+.btn-arr i:after,
+.photo-hovered-info .item .share ul li a,
+.fa.dark,
+.text-image-block-inner .more a {
+  color: #a7b5ad;
+}
+.menu-icon,
+.content-title h2:before,
+.expertise .text p.primary2 a:hover:after,
+.btn.btn-primary2:after,
+.projects .projects-type ul li a:after,
+.projects .projects-type ul li.active a:after,
+.text-image-block-inner .more a:before,
+.heading h2:after,
+.latest-tweets__slide blockquote a:after,
+.latest-tweets__slide .swiper-container .swiper-pagination .swiper-pagination-bullet:before,
+.footer__social a:after,
+.timeline-item:hover .number:after,
+.timeline-col_data,
+.breadcrumb > li a:after,
+.magazines__slide .text blockquote a:after,
+.beauty-photoshot__client .item ul li p a:before,
+.blog-post__list li.active a:after,
+.blog-post .description,
+.blog-post-list .item .img.bg-glasses2:after,
+.comments__item_text .reply:after,
+.blog-post__list li a:after,
+.list-styles2 ul > li ul > li:before,
+.quote a:after,
+.style-list ul > li:before,
+.timeline-col.first:before,
+.photo-hovered-info .item .name:before,
+.photo-hovered-info .item .img,
+.time-lin__col_data,
+.time-lin__col.first:before,
+.time-lin__col.first:before,
+.time-lin__col_item .number:after,
+.breadcrumb > li .link-line:after,
+.beauty-photoshot__client .link-line:after,
+.text-image-block-inner .more .link-line:after,
+.header__social {
+  background: #a7b5ad;
+}
+.btn.btn-primary2,
+.btn.btn-primary2:after,
+.accordion .panel,
+.timeline-item .number,
+.timeline-col.top,
+.timeline-col.bottom,
+.blog-post__search .inp,
+.col-md-12.border-b h3,
+textarea.form-control,
+input.form-control.primary2,
+textarea.form-control:focus,
+.style-list ul > li ul li:before,
+.time-lin__col_item .number,
+.time-lin__col.bottom,
+.time-lin__col.top {
+  border-color: #a7b5ad;
+}
+.graphic--madoka,
+.primary2 .morph-shape svg path {
+  stroke: #a7b5ad !important;
+}
+input.form-control.primary2,
+textarea.form-control {
+  box-shadow: 0 0 0 1px #a7b5ad inset;
+}
+.menu-main {
+  background: rgba(167, 181, 173, 0.9);
+}
+.header__title h1,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.btn.btn-info:hover,
+.panel-body .bottom span,
+.our-team .item .name h4,
+.our-team .item .name p,
+.what-we-do .what-we-do__icon,
+.expertise .item__top i:before,
+.breadcrumb > li.active,
+.beauty-photoshot__client .nav-tabs.nav-tabs_vertical li a span,
+.comments__item_title h6,
+.btn.btn-primary,
+.nav-tabs li a span {
+  color: #526384;
+}
+header,
+.menu-main nav > ul > li ul li,
+.anchor-top .anchor-top_i,
+.nav-tabs li.active a,
+.nav-tabs li.active a:after,
+.nav-tabs li a:after,
+.our-team .item .img,
+.our-team .item .name:before,
+.latest-tweets__slide .swiper-container .swiper-pagination .swiper-pagination-bullet:after,
+.header-main.slider-vertical,
+.hide-nav,
+.nav-slide:after,
+.beauty-photoshot__slide .swiper-container .swiper-pagination2 .swiper-pagination-bullet,
+.blog-post__img .list,
+.blog-post-list .item .img.bg-glasses1:after,
+.btn.btn-primary:after,
+.nav-tabs li.active a:hover {
+  background: #526384;
+}
+.menu-main,
+.nav-tabs li,
+.nav-tabs li a:after,
+.nav-tabs.nav-tabs_vertical li,
+.beauty-photoshot__slide .swiper-container .swiper-pagination2 .swiper-pagination-bullet,
+.btn.btn-primary,
+.btn.btn-primary:after {
+  border-color: #526384;
+}
+.footer__bottom,
+.header__info_i .col.right {
+  background: rgba(82, 99, 132, 0.9);
+}
+.project-list .item .item-hover,
+.skill-slider,
+.testi-slider,
+.nav-slide {
+  background: rgba(82, 99, 132, 0.8);
+}
+.nav-tabs.nav-tabs_dark li {
+  background: rgba(82, 99, 132, 0.2);
+}

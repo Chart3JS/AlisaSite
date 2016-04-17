@@ -1,0 +1,71 @@
+<!--menu-main-->
+<header class="menu-main">
+    <div class="search">
+        <a href="#">&nbsp;</a>
+        <input type="text" class="inp"/>
+    </div>
+  {{{include 'menu' 'main'}}}
+  {{>socialMenu}}
+</header>
+<!--menu-main end-->
+<!--anchor-top-->
+<!--anchor-top-->
+<div class="anchor-top">
+    <div class="anchor-top_i"><i>&nbsp;</i>
+    </div>
+</div>
+
+<!--anchor-top end-->
+
+{{>socialMenu}}
+{{>header showBanner=true}}
+<!--Container -->
+<div class="container">
+    <!--Content Title-->
+    <!--<div class="content-title">-->
+    <!--<h2></h2>-->
+    <!--</div>-->
+    <div class="text-image-block">
+        <div class="container space-bottom space-top">
+            <div class="content-title space-bottom">
+                <h2>{{t "main_text_title"}}</h2>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-5">
+                    <div class="text-image-block-inner main-text">
+                        <blockquote>{{t "main_text"}}</blockquote>
+                        <p>{{t "main_text_author"}}</p>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-7">
+                    {{single_video_item 594 340 0}}
+                </div>
+            </div>
+        </div>
+        <!--container end-->
+    </div>
+    <!-- events -->
+    <div class="container">
+        <a name="events"></a>
+        <div class="row">
+            <div class="photo-hovered-info space-bottom-2x">
+                <div class="content-title space-bottom">
+                    <br/>
+                    <br/>
+                    <h2>{{t "events_title"}}</h2>
+                </div>
+                <!--events__list-->
+              {{>events}}
+                <!--events__list end-->
+            </div>
+        </div>
+    </div>
+   {{>scroller}}
+    <div id="scWidget"></div>
+
+</div>
+<br/>
+<br/>
+{{>footer}}
+

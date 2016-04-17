@@ -1,0 +1,42 @@
+{
+	"main_title": "Главная",
+  "top_title": "Наверх",
+  "main_text": "«Музыка воодушевляет весь мир, снабжает душу крыльями, способствует полету воображения; музыка придает жизнь и веселье всему существующему, делает человека счасливым… Ее можно назвать воплощением всего прекрасного и всего возвышенного.»",
+  "main_text_author": "Платон",
+  "main_text_title": "Это всё о музыке",
+	"articles_title": "Статьи",
+	"recommendations_title": "Рекомендации",
+	"recommendations": "Рекомендации",
+	"articles": "статьи",
+	"page": "страница",
+  "events_title": "События",
+	"video_title": "Видео уроки",
+  "audio_title": "Audio",
+  "contacts_title": "Контакты",
+	"Hello": "Привет",
+	"Hello %s, how are you today?": "Hello %s, how are you today?",
+	"weekend": "weekend",
+	"Hello %s, how are you today? How was your %s.": "Hello %s, how are you today? How was your %s.",
+	"Hi": "Hi",
+	"Howdy": "Howdy",
+	"%s cat": {
+		"one": "%s cat",
+		"other": "%s cats"
+	},
+	"There is one monkey in the %%s": {
+		"one": "There is one monkey in the %%s",
+		"other": "There are %d monkeys in the %%s"
+	},
+	"tree": "tree",
+	"%s dog": {
+		"one": "one dog",
+		"other": "[0] no dog|[2,5] some dogs|[6,11] many dogs|[12,36] dozens of dogs|a horde of %s dogs"
+	},
+	"статьи": "статьи",
+  "audio": "Audio",
+  "video": "Video",
+  "contacts": "контакты",
+  "alisa_name": "Алиса Плоткин",
+  "meta_description": "Откройте для себя талантливую певицу, обладающую дивным, чарующим голосом и по настоящему душевным исполнительским мастерством",
+  "key_words": ""
+}

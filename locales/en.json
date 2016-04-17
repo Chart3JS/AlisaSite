@@ -1,0 +1,47 @@
+{
+	"main_title": "Home",
+	"top_title": "Top",
+	"main_text": "«Music is a moral law. It gives soul to the universe, wings to the mind, flight to the imagination, and charm and gaiety to life and to everything.»",
+	"main_text_author": "Plato",
+	"main_text_title": "It's all about music",
+	"articles_title": "Articles",
+	"recommendations_title": "Recommendations",
+	"recommendations": "recommendations",
+	"video_title": "Video",
+	"events_title": "Events",
+	"audio_title": "Audio",
+	"contacts_title": "Contacts",
+	"articles": "articles",
+	"page": "page",
+	"Hello": "Hello",
+	"Hello %s, how are you today?": "Hello %s, how are you today?",
+	"weekend": "weekend",
+	"Hello %s, how are you today? How was your %s.": "Hello %s, how are you today? How was your %s.",
+	"Hi": "Hi",
+	"Howdy": "Howdy",
+	"%s cat": {
+		"one": "%s cat",
+		"other": "%s cats"
+	},
+	"There is one monkey in the %%s": {
+		"one": "There is one monkey in the %%s",
+		"other": "There are %d monkeys in the %%s"
+	},
+	"tree": "tree",
+	"%s dog": {
+		"one": "one dog",
+		"other": "[0] no dog|[2,5] some dogs|[6,11] many dogs|[12,36] dozens of dogs|a horde of %s dogs"
+	},
+	"/": "/",
+	"video": "video",
+	"audio": "audio",
+	"contacts": "contacts",
+	"alisa_name": "Alisa Plotkin",
+	"meta_description": "Discover the talented singer with a marvelous , charming voice and truly spiritual mastery",
+	"key_words": "key_words",
+	"": "",
+	"#video": "#video",
+	"#events": "#events",
+	"#contacts": "#contacts",
+	"#top": "#top"
+}
