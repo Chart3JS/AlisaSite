@@ -1,13 +1,19 @@
-<div class="item">
+<div class="item" itemscope="" itemtype="http://schema.org/MusicEvent">
+    <div itemprop="location" itemscope="" itemtype="http://schema.org/MusicVenue">
+        <meta itemprop="name" content="{{place.name}}"/>
+        <meta itemprop="address" content="{{place.location.city}}, {{place.location.street}}, {{place.location.country}}"/>
+    </div>
     <div class="item__i">
-        <div class="img">
-            <img width="270" height="432" src="{{cover.source}}" alt="#" />
+        <div class="img" itemprop="performer" itemtype="http://schema.org/Person">
+            <title itemprop="name">{{t "alisa_name"}}</title>
+            <img itemprop="image" width="270" height="432" src="{{cover.source}}" alt="{{name}}" />
         </div>
         <div class="title">
             <div class="title__i">
                 <div class="name">
-                    <h4>{{name}}</h4>
-                    <p>{{start_time}}</p>
+                    <h4 itemprop="name">{{name}}</h4>
+                    <p itemprop="startDate">{{start_time}}</p>
+                    <p>{{place.location.city}}</p>
                 </div>
                 <div class="description">
                     <p>{{description}}

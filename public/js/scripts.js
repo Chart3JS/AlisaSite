@@ -150,7 +150,7 @@ function _bindVideos() {
   var videoPlayerWrapper = $('div#popup-video-player-wrapper');
   videoPlayerWrapper.height(screen.height);
   var videoPlayer = videoPlayerWrapper.find('video#popup-video-player');
-  $('div#videos-swiper-wrapper').find('a.video-thumbnail').each(function() {
+  $('div#videos-swiper-wrapper').find('a.video-wrapper').each(function() {
     var videoEl = $(this);
     videoEl.on('click', function(ev) {
       var videoSource = $(this).attr('href');
@@ -165,6 +165,7 @@ function _bindVideos() {
         _showVideo(videoPlayerWrapper);
       }
       ev.preventDefault();
+      ev.stopPropagation();
     });
   });
 }
@@ -173,24 +174,30 @@ function _showVideo(videoPlayerWrapper) {
   videoPlayerWrapper.css({top: $(document).scrollTop()});
   videoPlayerWrapper.removeClass('hidden');
   disableScroll();
+  videoPlayerWrapper.click(function(ev){
+    $(this).addClass('hidden');
+    $(this).unbind('click');
+    enableScroll();
+    ev.preventDefault();
+  });
 }
 
 function _animateVideosSlider(wrapper) {
   wrapper.find('.swiper-slide').each(function() {
     var shownFoundAtPosition = -1;
-    var imageWrappers = $(this).find('a.video-thumbnail');
+    var imageWrappers = $(this).find('a img.video-thumbnail');
     imageWrappers.each(function(ind){
       var imageWrapper = $(this);
-      if(!imageWrapper.hasClass('hide')) {
+      if(!imageWrapper.hasClass('hidden')) {
         shownFoundAtPosition = ind;
       }
     });
-    $(imageWrappers[shownFoundAtPosition]).addClass('hide');
+    $(imageWrappers[shownFoundAtPosition]).addClass('hidden');
     var nextShownImageIndex = 0;
     if(shownFoundAtPosition < imageWrappers.length -1) {
       nextShownImageIndex = shownFoundAtPosition + 1;
     }
-    $(imageWrappers[nextShownImageIndex]).removeClass('hide');
+    $(imageWrappers[nextShownImageIndex]).removeClass('hidden');
   });
 
 }

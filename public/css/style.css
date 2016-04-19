@@ -2971,11 +2971,11 @@ p.primary2 a.link-line:after {
   cursor: pointer;
   text-align: center;
 }
-a.video-thumbnail {
+a.video-wrapper {
   display: inline-block;
   position: relative;
 }
-a.video-thumbnail:before {
+a.video-wrapper:before {
   content: '';
   position: absolute;
   display: inline-block;
@@ -2987,10 +2987,10 @@ a.video-thumbnail:before {
   left: 42%;
   background-color: white;
 }
-a.video-thumbnail:hover:before {
+a.video-wrapper:hover:before {
   opacity: .74;
 }
-a.video-thumbnail:after {
+a.video-wrapper:after {
   content: '';
   position: absolute;
   display: inline-block;
@@ -8070,13 +8070,13 @@ div.control-banner {
   padding-left: 28px;
 }
 
-.video-thumbnail {
+.video-wrapper {
   width: 265px;
   height: 138px;
   display: inline-block;
   overflow: hidden;
 }
-.video-thumbnail > img{
+.video-wrapper > img{
   width: 100%;
 }
 
@@ -8129,7 +8129,7 @@ iPad 3
     width: 594px;
     height: 340px;
   }
-  .video-thumbnail {
+  .video-wrapper {
     width: 265px;
     height: 138px;
   }

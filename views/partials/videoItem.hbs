@@ -1,0 +1,24 @@
+<div itemid="{{source}}" class="swiper-slide" itemscope itemtype="http://schema.org/VideoObject">
+    <title itemprop="name">{{description}}</title>
+    <div itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <meta itemprop="name" content="{{t "alisa_name"}}">
+    </div>
+    <a id="{{id}}" href="{{source}}" title="{{description}}" class="video-wrapper">
+        <title>{{t "facebook_likes_count"}}
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <div itemprop="interactionService" itemscope itemid="https://www.facebook.com" itemtype="http://schema.org/Website">
+                <meta itemprop="name" content="{{t "facebook_name"}}" />
+            </div>
+            <link itemprop="interactionType" href="http://schema.org/LikeAction"/>
+            <meta itemprop="userInteractionCount" content="{{likes.data.length}}">
+        </div>
+        </title>
+        {{#each thumbnails.data}}
+          {{#if this.is_preferred}}
+              <img  class="video-thumbnail" alt="{{description}}" src="{{this.uri}}"/>
+          {{else}}
+              <img  class="video-thumbnail hidden" alt="{{description}}" src="{{this.uri}}"/>
+          {{/if}}
+        {{/each}}
+    </a>
+</div>

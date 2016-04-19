@@ -63,19 +63,14 @@ module.exports = {
       var videos = app.globals.videos;
       var videosCount = videos.length;
       var videosHTML = '';
+      var videoItemPartial = handlebars.partials['videoItem'];
+      if (typeof videoItemPartial !== 'function') {
+        videoItemPartial = handlebars.compile(videoItemPartial);
+      }
       for(var videoIndex = 0; videoIndex < videosCount; videoIndex++) {
         var video = videos[videoIndex];
         var thumbnails = video.thumbnails.data;
-        videosHTML += '<div class="swiper-slide">';
-        _.each(thumbnails, function(thumbnail){
-          var className = 'video-thumbnail';
-          if(!thumbnail.is_preferred) {
-            className = 'video-thumbnail hide';
-          }
-          videosHTML += '<a id="' + video.id + '" href="' + video.source + '" title="' +
-            video.description +'" class="' + className + '"><img alt="' + video.description + '" src="' + thumbnail.uri + '"/></a>';
-        });
-        videosHTML += '</div>';
+        videosHTML += videoItemPartial(video);
       }
       return new hbs.SafeString(videosHTML);
     });

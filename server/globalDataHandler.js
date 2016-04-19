@@ -33,6 +33,7 @@ module.exports = {
     var fbPageEvents = FB_EVENTS_API_URL.replace("#access_token#", config.facebook.access_token).
       replace("#page_id#", config.facebook.page_id);
     _retrieveData(fbPageEvents, {}, function(eventsResponse) {
+      var nowTime = (new Date()).getTime();
       // sort events in ascending order by start time
       var events = eventsResponse.data.sort(function(ev1, ev2) {
         return (new Date(ev1.start_time)) - (new Date(ev2.start_time));
@@ -46,6 +47,9 @@ module.exports = {
         } else {
           event.endTime = event.startTime;
           event.end_time = event.start_time;
+        }
+        if(!!_.isUndefined(event.place)) {
+
         }
       });
 

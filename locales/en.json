@@ -1,5 +1,7 @@
 {
 	"main_title": "Home",
+	"menu_title": "Menu",
+	"navigation_title": "Navigation",
 	"top_title": "Top",
 	"main_text": "«Music is a moral law. It gives soul to the universe, wings to the mind, flight to the imagination, and charm and gaiety to life and to everything.»",
 	"main_text_author": "Plato",
@@ -43,5 +45,7 @@
 	"#video": "#video",
 	"#events": "#events",
 	"#contacts": "#contacts",
-	"#top": "#top"
+	"#top": "#top",
+  "facebook_likes_count": "Facebook Like Count",
+  "facebook_name": "Facebook"
 }
