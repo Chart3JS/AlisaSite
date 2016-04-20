@@ -141,7 +141,7 @@ function _animateBanner(showAnimation, completed) {
             bannerControl.animate({
               top: -323
             }, 800, function() {
-              _toggleBanner();
+              //_toggleBanner();
             });
           })
         });
