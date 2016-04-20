@@ -102,7 +102,7 @@ function _animateBanner(showAnimation, completed) {
   completed = completed || function() {};
   var animDuration = !!showAnimation ? 2400 : 0;
     mainHeader.animate({
-      height: [ 0, "swing" ],
+      height: [ 190, "swing" ],
       top: -380
     }, animDuration, function() {
       // Animation complete.
@@ -117,6 +117,16 @@ function _animateBanner(showAnimation, completed) {
         bannerControl.unbind('click');
         bannerControl.click(function() {
           isBannerShown = true;
+          setTimeout(function() {
+
+            var close_banner = $('.paralax__images a#close_banner');
+            close_banner.css({top: -100});
+            close_banner.removeClass('hidden');
+            close_banner.animate({
+              top: [ 2, "swing" ]
+            }, 200);
+          }, 360);
+
           setTimeout(function(){
             placeholder.hide();
             mainHeader.show();
@@ -206,8 +216,11 @@ $(document).ready(function() {
   embed("dj-faze");
   //parallax effect
   $('#scene').parallax();
-
-  _toggleBanner();
+  $('.paralax__images a#close_banner').click(function(ev) {
+    $(this).addClass('hidden');
+    _animateBanner(true);
+  });
+  //_toggleBanner();
   _bindVideos();
   var wrapper = $('div#videos-swiper-wrapper');
   setInterval(function() {
