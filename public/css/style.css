@@ -368,8 +368,8 @@ a#close_banner {
   z-index: 1000!important;
   display: block;
   position: absolute;
-  top: 2px;
-  right: 61px;
+  top: 4px;
+  right: 11px;
   height: 0;
   text-decoration: none;
   font-size: 22px;
@@ -4289,7 +4289,7 @@ body {
 .menu-icon {
   position: fixed;
   z-index: 103;
-  top: 72px;
+  top: 70px;
   right: 72px;
 
   width: 48px;
@@ -4303,7 +4303,7 @@ body {
 @media only screen and (max-width: 767px) {
   .menu-icon {
     position: absolute;
-    top: 40px;
+    top: 29px;
     right: 40px;
   }
 }
@@ -6600,8 +6600,8 @@ body {
 .footer_i {
   padding-top: 12px;
   padding-bottom: 12px;
-
-  background: url('../img/bg-footer.jpg') no-repeat;
+  /* todo - insert footer background image */
+  /*background: url('../img/bg-footer.jpg') no-repeat;*/
   background-position: center top;
   background-size: cover;
 }
@@ -8172,6 +8172,11 @@ div.control-banner {
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
   /* Styles */
+
+  .menu-icon {
+    right: 90px;
+
+  }
 }
 
 /* Smartphones (landscape) ----------- */
@@ -8242,12 +8247,16 @@ iPad 3
     width: 600px;
     height: 342px;
   }
+  #close_banner {
+    /*display: none!important;*/
+    top: 1px;
+  }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
   video.fb-video-player {
-    width: 300px;
-    height: 172px;
+    width: 262px;
+    height: 150px;
   }
 }
 

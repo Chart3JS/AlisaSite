@@ -123,7 +123,7 @@ function _animateBanner(showAnimation, completed) {
             close_banner.css({top: -100});
             close_banner.removeClass('hidden');
             close_banner.animate({
-              top: [ 2, "swing" ]
+              top: [ 4, "swing" ]
             }, 200);
           }, 360);
 
