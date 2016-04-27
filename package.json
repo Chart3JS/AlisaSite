@@ -22,6 +22,10 @@
     "http": "*",
     "https": "*",
     "moment": "*",
-    "node-soundcloud": "*"
+    "node-soundcloud": "*",
+    "cssmin": "*",
+    "uglify-js": "*",
+    "express-minify": "*",
+    "compression": "*"
   }
 }

@@ -1,4 +1,8 @@
 var express = require('express');
+var minify = require('express-minify');
+var compression = require('compression');
+var jsUglify = require('uglify-js');
+var cssmin = require('cssmin');
 var i18n = require("i18n");
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -31,11 +35,17 @@ globalDataHandler.initData(function(globals) {
   app.use(cookieParser());
   app.use(require('less-middleware')(path.join(__dirname, '/public')));
   app.use(express.static(path.join(__dirname, '/public')));
+  app.use(minify({
+    uglifyJS: jsUglify,
+    cssmin: cssmin
+  }));
+  app.use(compression());
   i18n.configure({
     locales:['en', 'ru'],
     directory: __dirname + '/locales',
     defaultLocale: 'en'
   });
+
   app.use(i18n.init);
   hbs.registerPartials(__dirname + '/' + viewDir + '/partials');
   renderHelpers.registerHelpers(hbs, app, i18n);
