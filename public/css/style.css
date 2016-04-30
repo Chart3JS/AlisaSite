@@ -364,6 +364,53 @@ input:focus {
   margin-bottom: -20px;
 }
 
+ul#dancing-notes {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50px;
+}
+ul#dancing-notes > li {
+  display: block;
+  float: left;
+  font-size: 1.3em;
+  text-shadow: 0 -1px 0 white, 0 1px 0 black;
+  opacity: .64;
+}
+li.note-do {
+  color: red;
+}
+li.note-re {
+  color: orange;
+}
+li.note-mi {
+  color: yellow;
+}
+li.note-fa {
+  color: green;
+}
+li.note-sol {
+  color: blue;
+}
+li.note-la {
+  color: darkblue;
+}
+li.note-si {
+  color: violet;
+}
+.anim {
+  -webkit-animation: music 1s ease-in-out both infinite;
+}
+
+@-webkit-keyframes music {
+  0%,100% {
+    -webkit-transform: translate3d(0,-10px,0);
+  }
+  50% {
+    -webkit-transform: translate3d(0,10px,0);
+  }
+}
+
 a#close_banner {
   z-index: 1000!important;
   display: block;

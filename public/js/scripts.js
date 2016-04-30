@@ -98,9 +98,28 @@ var mainHeader = $('.header-main');
 var bannerControl = $('.control-banner');
 var placeholder = $('div#banner-placeholder');
 
+function _animateNotes(isAnimated) {
+  var notesContainer = $('ul#dancing-notes');
+  var notes = notesContainer.find('li');
+  var counter = 0;
+  if(!!isAnimated) {
+    notesContainer.show();
+    notes.each(function() {
+      $(this).css('-webkit-animation','music 1s '+counter+'00ms  ease-in-out both infinite');
+      counter++;
+    });
+  } else {
+    notesContainer.hide();
+    notes.each(function() {
+      $(this).css('-webkit-animation','none');
+    });
+  }
+
+}
+
 function _animateBanner(showAnimation, completed) {
   completed = completed || function() {};
-  var animDuration = !!showAnimation ? 2400 : 0;
+  var animDuration = !!showAnimation ? 1200 : 0;
     mainHeader.animate({
       height: [ 190, "swing" ],
       top: -380
@@ -115,8 +134,10 @@ function _animateBanner(showAnimation, completed) {
         top: -223
       }, 800, function() {
         bannerControl.unbind('click');
+        _animateNotes(true);
         bannerControl.click(function() {
           isBannerShown = true;
+          _animateNotes(false);
           setTimeout(function() {
 
             var close_banner = $('.paralax__images a#close_banner');
