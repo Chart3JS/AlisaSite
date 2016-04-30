@@ -8323,12 +8323,26 @@ iPad 3
 }
 
 /* iPhone 6+ ----------- */
-@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
-  /* Styles */
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 3) {
+  video.fb-video-player {
+    width: 674px;
+    height: 380px;
+  }
 }
 
-@media only screen and (min-device-width: 414px) and (max-device-height: 736px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
-  /* Styles */
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 3){
+  video.fb-video-player {
+    width: 354px;
+    height: 197px;
+  }
 }
 
 /* Samsung Galaxy S3 ----------- */
