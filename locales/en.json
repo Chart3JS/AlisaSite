@@ -36,6 +36,7 @@
 	},
 	"/": "/",
 	"video": "Video",
+	"photo": "Photo",
 	"audio": "audio",
 	"contacts": "contacts",
 	"alisa_name": "Alisa Plotkin",

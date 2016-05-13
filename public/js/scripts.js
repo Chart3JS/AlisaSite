@@ -119,9 +119,10 @@ function _animateNotes(isAnimated) {
 
 function _animateBanner(showAnimation, completed) {
   completed = completed || function() {};
+  var mainHeaderHeight = !!mobile?70:190;
   var animDuration = !!showAnimation ? 1200 : 0;
     mainHeader.animate({
-      height: [ 190, "swing" ],
+      height: [ mainHeaderHeight, "swing" ],
       top: -380
     }, animDuration, function() {
       // Animation complete.

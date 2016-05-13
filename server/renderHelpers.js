@@ -44,7 +44,6 @@ module.exports = {
                 eventPartial = handlebars.compile(eventPartial);
               }
               eventsString += eventPartial(event);
-
             }
             return eventsString;
           break;
@@ -73,6 +72,34 @@ module.exports = {
         videosHTML += videoItemPartial(video);
       }
       return new hbs.SafeString(videosHTML);
+    });
+
+    hbs.registerHelper('image_gallery', function() {
+      var galleryHTML = '';
+      //var infoDiv = ' <div style="display: none;"><div id="htmlcaption3"><em>HTML</em> caption. Back to <a href="http://www.menucool.com/">Menucool</a>.</div><div id="htmlcaption5">Smart Lazy Loading Image</div></div>';
+      var sliderHTML = '<div class="slider-inner"><ul>';
+      var thumbnailsHTML = '<div id="thumbnail-slider"><div class="inner"><ul>';
+      var photos = app.globals.photos;
+      var photosCount = photos.length;
+      for(var photoIndex = 0; photoIndex < photosCount; photoIndex++) {
+        var photo = photos[photoIndex];
+        var images = photo.images;
+        var fullImage = images[images.length - 3];
+        var thumbnail = images[images.length - 2];
+        sliderHTML += '<li><a class="ns-img" href="' + fullImage.source + '"></a></li>';
+        //if(photoIndex === 0) {
+        //  sliderHTML += '<a target="_blank" href="' + fullImage.source + '" title="">' +
+        //    '<img src="' + fullImage.source + '" alt="" />' +
+        //    '</a>';
+        //} else {
+        //  sliderHTML += '<a class="lazyImage" href="' + fullImage.source + '" title=""></a>';
+        //}
+        thumbnailsHTML += '<li><a class="thumb" href="' + thumbnail.source + '"></a><span>' + photoIndex + '</span></li>';
+      }
+      sliderHTML += '</ul><div class="fs-icon" title="Expand/Close"></div></div>';
+      thumbnailsHTML += '</ul></div></div>';
+      galleryHTML = sliderHTML + thumbnailsHTML;
+      return new hbs.SafeString(galleryHTML);
     });
     hbs.registerHelper('menu_item',_buildMenuItem);
     hbs.registerHelper('menu',function(menuItems, selectedItem) {
@@ -105,9 +132,6 @@ module.exports = {
     function _buildMenuItem(menuItem, parent, selectedItem, hasChildren) {
       var selected = menuItem.name === selectedItem;
       var className = '';
-      //if(!!selected) {
-      //  return new hbs.SafeString( '<li><a href="' + _buildURL(menuItem.link) + '" class="selected-menu-item">' + trns(menuItem.title_key) + '</a>' + (!hasChildren?'</li>':'') );
-      //} else {
         // write a link
         if(!!_.isNull(parent)) {
           // a first level item
@@ -116,8 +140,6 @@ module.exports = {
           className = 'link-line';
         }
         return new hbs.SafeString( '<li><a href="' + _buildURL(menuItem.link) + '" class="' + className + '">' + trns(menuItem.title_key) + '</a>'  + (!hasChildren?'</li>':'') );
-      //}
-
     }
     function _buildURL(link) {
       return (link.prefix ? (link.prefix + '/') : '/') + trns(link.href);

@@ -9,8 +9,8 @@ const FB_EVENTS_API_URL = 'https://graph.facebook.com/v2.5/#page_id#/events?acce
 const FB_VIDEOS_API_URL = 'https://graph.facebook.com/v2.5/#page_id#/videos?access_token=#access_token#&debug=all&fields=event,content_category,place,permalink_url,id,description,backdated_time_granularity,source,likes,thumbnails,updated_time&format=json&method=get&pretty=0&suppress_http_code=1';
 const FB_FEEDS_API_URL = 'https://graph.facebook.com/v2.5/#page_id#/feed?access_token=#access_token#&debug=all&fields=application,call_to_action,child_attachments,coordinates,created_time,description,link,feed_targeting&include_hidden=true';
 const POSTS_API_ADDRESS = 'https://public-api.wordpress.com/rest/v1.1/sites/ilovesingblog.wordpress.com/';
-
-
+const FB_PAGE_ALBUMS_API_URL = 'https://graph.facebook.com/v2.6/#page_id#?access_token=#access_token#&debug=all&fields=albums%7Bcount%2Clink%2Clocation%2Cname%2Cid%7D&format=json&method=get&pretty=0&suppress_http_code=1';
+const FB_ALBUM_PHOTOS_API_URL = 'https://graph.facebook.com/v2.6/#album_id#?access_token=#access_token#&debug=all&fields=photos%7Bheight%2Cfrom%2Cid%2Cimages%2Cwidth%2Clink%7D&format=json&method=get&pretty=0&suppress_http_code=1';
 /*var initOAuth = function(req, res) {
   var url = SC.getConnectUrl();
 
@@ -71,13 +71,35 @@ module.exports = {
               });
             }
           });
-          calback({
-            config: config,
-            pages: pages,
-            sysDictionary: sysDictionary,
-            events: events,
-            videos: videos,
-            audio: soundCloudTraks
+          var albumsURL = FB_PAGE_ALBUMS_API_URL.replace("#access_token#", config.facebook.access_token).
+          replace("#page_id#", config.facebook.page_id);
+          _retrieveData(albumsURL, {}, function(albumsData) {
+            var albums = albumsData.albums.data;
+            var photos = [];
+            var albumsCount = albums.length;
+            var albumsCounter = 0;
+            for(var albumIndex = 0; albumIndex < albumsCount; albumIndex++) {
+              var album = albums[albumIndex];
+              var albumUrl = FB_ALBUM_PHOTOS_API_URL.replace("#access_token#", config.facebook.access_token).
+              replace("#album_id#", album.id);
+              _retrieveData(albumUrl, {}, function(photosData) {
+                var albumPhotos = photosData.photos.data;
+                photos = _.concat(photos, albumPhotos);
+                albumsCounter++;
+                if(albumsCount === albumsCounter) {
+                  console.log("############## THE SERVER IS UP #############");
+                  calback({
+                    config: config,
+                    pages: pages,
+                    sysDictionary: sysDictionary,
+                    photos: photos,
+                    events: events,
+                    videos: videos,
+                    audio: soundCloudTraks
+                  });
+                }
+              });
+            }
           });
         });
 
