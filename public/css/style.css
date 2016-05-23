@@ -8490,5 +8490,9 @@ and (-webkit-min-device-pixel-ratio: 3){
   ul#dancing-notes > li {
     font-size: 1em;
   }
+  div#popup-video-player-wrapper > .popup-player {
+    top: 32%;
+    left: 7%;
+  }
 }
 
