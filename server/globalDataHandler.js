@@ -11,6 +11,7 @@ const FB_FEEDS_API_URL = 'https://graph.facebook.com/v2.5/#page_id#/feed?access_
 const POSTS_API_ADDRESS = 'https://public-api.wordpress.com/rest/v1.1/sites/ilovesingblog.wordpress.com/';
 const FB_PAGE_ALBUMS_API_URL = 'https://graph.facebook.com/v2.6/#page_id#?access_token=#access_token#&debug=all&fields=albums%7Bcount%2Clink%2Clocation%2Cname%2Cid%7D&format=json&method=get&pretty=0&suppress_http_code=1';
 const FB_ALBUM_PHOTOS_API_URL = 'https://graph.facebook.com/v2.6/#album_id#?access_token=#access_token#&debug=all&fields=photos%7Bheight%2Cfrom%2Cid%2Cimages%2Cwidth%2Clink%7D&format=json&method=get&pretty=0&suppress_http_code=1';
+const YOUTUBE_VIDEO_LINK_TEMPLATE = 'https://www.youtube.com/embed/';
 /*var initOAuth = function(req, res) {
   var url = SC.getConnectUrl();
 
@@ -59,6 +60,17 @@ module.exports = {
       _retrieveData(fbPageVideos, {}, function(videosResponse) {
         var videos = videosResponse.data.sort(function(v1, v2) {
           return (new Date(v2.updated_time)) - (new Date(v1.updated_time));
+        });
+        var videosMapping = require('../config/video_fb_yt_mapping.json');
+        _.each(videos, function(video) {
+          var youtubeVideoId = videosMapping[video.id];
+          if(!_.isUndefined(youtubeVideoId)) {
+            video.fb_source = video.source;
+            video.source = YOUTUBE_VIDEO_LINK_TEMPLATE + youtubeVideoId;
+            video.videoSourceType = 'yt';
+          } else {
+            video.videoSourceType = 'fb';
+          }
         });
         var feedsURL = FB_FEEDS_API_URL.replace("#access_token#", config.facebook.access_token).
         replace("#page_id#", config.facebook.page_id);

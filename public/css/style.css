@@ -8274,7 +8274,7 @@ iPad 3
 }
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1224px) {
-  video.fb-video-player {
+  .video-player {
     width: 594px;
     height: 340px;
   }
@@ -8300,7 +8300,7 @@ iPad 3
 
 /* iPhone 5 ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
-  video.fb-video-player {
+  .video-player {
     width: 508px!important;
     height: 300px!important;
   }
@@ -8326,7 +8326,7 @@ iPad 3
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
-  video.fb-video-player {
+  .video-player {
     width: 262px;
     height: 150px;
   }
@@ -8359,7 +8359,7 @@ iPad 3
 
 /* iPhone 6 ----------- */
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
-  video.fb-video-player {
+  .video-player {
     width: 608px!important;
     height: 345px!important;
   }
@@ -8367,7 +8367,7 @@ iPad 3
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
-  video.fb-video-player {
+  .video-player {
     width: 318px;
     height: 182px;
   }
@@ -8404,9 +8404,13 @@ and (min-device-width: 414px)
 and (max-device-width: 736px)
 and (orientation: landscape)
 and (-webkit-min-device-pixel-ratio: 3) {
-  video.fb-video-player {
+  .video-player {
     width: 674px;
     height: 380px;
+  }
+  div#popup-video-player-wrapper > .popup-player {
+    top: 4%;
+    left: 5%;
   }
 }
 
@@ -8415,9 +8419,13 @@ and (min-device-width: 414px)
 and (max-device-width: 736px)
 and (orientation: portrait)
 and (-webkit-min-device-pixel-ratio: 3){
-  video.fb-video-player {
+  .video-player {
     width: 354px;
     height: 197px;
+  }
+  div#popup-video-player-wrapper > .popup-player {
+    top: 32%;
+    left: 7%;
   }
   .menu-icon {
     right: 66px!important;
@@ -8450,7 +8458,7 @@ and (-webkit-min-device-pixel-ratio: 3){
 
 @media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3){
   /* Styles */
-  video.fb-video-player {
+  .video-player {
     width: 302px;
     height: 175px;
   }

@@ -181,14 +181,30 @@ function _toggleBanner() {
 function _bindVideos() {
   var videoPlayerWrapper = $('div#popup-video-player-wrapper');
   videoPlayerWrapper.height(screen.height);
-  var videoPlayer = videoPlayerWrapper.find('video#popup-video-player');
+  var fbVideoPlayer = videoPlayerWrapper.find('video#fb-popup-video-player');
+  var ytVideoPlayer = videoPlayerWrapper.find('iframe#yt-popup-video-player');
   $('div#videos-swiper-wrapper').find('a.video-wrapper').each(function() {
     var videoEl = $(this);
     videoEl.on('click', function(ev) {
-      var videoSource = $(this).attr('href');
+      ev.preventDefault();
+      ev.stopPropagation();
+      var videoSourceType = videoEl.attr('video-source-type');
+      var videoSource = videoEl.attr('href');
       videoPlayerWrapper.addClass('hidden');
-
-      videoPlayer.attr({src: videoSource});
+      switch (videoSourceType) {
+        case 'fb':
+          ytVideoPlayer.attr({src: ''}).addClass('hidden');
+          fbVideoPlayer.attr({src: videoSource}).removeClass('hidden');
+              break;
+        case 'yt':
+          fbVideoPlayer.attr({src: ''}).addClass('hidden');
+          ytVideoPlayer.attr({src: videoSource}).removeClass('hidden');
+              break;
+        default:
+          ytVideoPlayer.attr({src: ''}).addClass('hidden');
+          fbVideoPlayer.attr({src: videoSource}).removeClass('hidden');
+              break;
+      }
       if(!!isBannerShown) {
         _animateBanner(false, function() {
           _showVideo(videoPlayerWrapper);
@@ -196,8 +212,6 @@ function _bindVideos() {
       } else {
         _showVideo(videoPlayerWrapper);
       }
-      ev.preventDefault();
-      ev.stopPropagation();
     });
   });
 }
@@ -208,6 +222,9 @@ function _showVideo(videoPlayerWrapper) {
   disableScroll();
   videoPlayerWrapper.click(function(ev){
     $(this).addClass('hidden');
+    $(this).children().each(function() {
+      $(this).addClass('hidden').attr({src: ''});
+    });
     $(this).unbind('click');
     enableScroll();
     ev.preventDefault();

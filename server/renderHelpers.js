@@ -124,7 +124,7 @@ module.exports = {
       }
       var videoItem = app.globals.videos[index];
       //var videoHTML = "<video width='" + width + "' height='" + height + "' controls name='media'><source src='" + videoItem.source +
-      var videoHTML = "<video class='fb-video-player' controls name='media'><source src='" + videoItem.source +
+      var videoHTML = "<video class='video-player' controls name='media'><source src='" + videoItem.fb_source +
         "' type='video/mp4'/></video>";
       return new hbs.SafeString(videoHTML);
     });
