@@ -8370,6 +8370,10 @@ iPad 3
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+  div#popup-video-player-wrapper > .popup-player {
+    top: 32%;
+    left: 7%;
+  }
   .video-player {
     width: 318px;
     height: 182px;
