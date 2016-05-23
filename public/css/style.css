@@ -8244,7 +8244,10 @@ div.control-banner {
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
   /* Styles */
-
+  div#popup-video-player-wrapper > .popup-player {
+    top: 32%;
+    left: 7%;
+  }
 
 }
 
