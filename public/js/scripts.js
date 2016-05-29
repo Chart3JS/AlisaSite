@@ -10,20 +10,20 @@ $('a[href=#], .update a').click(function(e) {
   e.preventDefault();
 });
 
-SC.initialize({
-  client_id: '24e4f5a6a6eb2b39a34bb53c60270526'
-});
-var track_url = 'https://soundcloud.com/alisa-plotkin/je-suis-malade';
-function embed (id) {
-  SC.oEmbed(track_url,
-    { color: "ff0066"
-      , auto_play: true
-      , maxwidth: 500
-      , maxheight: 1000
-      , show_comments: true } // options
-    , document.getElementById("scWidget") // what element to attach player to
-  );
-}
+//SC.initialize({
+//  client_id: '24e4f5a6a6eb2b39a34bb53c60270526'
+//});
+//var track_url = 'https://soundcloud.com/alisa-plotkin/je-suis-malade';
+//function embed (id) {
+//  SC.oEmbed(track_url,
+//    { color: "ff0066"
+//      , auto_play: true
+//      , maxwidth: 500
+//      , maxheight: 1000
+//      , show_comments: true } // options
+//    , document.getElementById(id) // what element to attach player to
+//  );
+//}
 //verge is a compact set of cross-browser viewport utilities packed into an opensource JavaScript module
 jQuery.extend(verge);
 var desktop = true,
@@ -119,11 +119,11 @@ function _animateNotes(isAnimated) {
 
 function _animateBanner(showAnimation, completed) {
   completed = completed || function() {};
-  var mainHeaderHeight = !!mobile?70:190;
+  var mainHeaderHeight = !!mobile?70:130;
   var animDuration = !!showAnimation ? 1200 : 0;
     mainHeader.animate({
       height: [ mainHeaderHeight, "swing" ],
-      top: -380
+      top: -200
     }, animDuration, function() {
       // Animation complete.
       completed();
@@ -132,8 +132,8 @@ function _animateBanner(showAnimation, completed) {
       mainHeader.hide();
       bannerControl.unbind('click');
       bannerControl.animate({
-        top: -223
-      }, 800, function() {
+        top: -230
+      }, 600, function() {
         bannerControl.unbind('click');
         _animateNotes(true);
         bannerControl.click(function() {
@@ -145,16 +145,16 @@ function _animateBanner(showAnimation, completed) {
             close_banner.css({top: -100});
             close_banner.removeClass('hidden');
             close_banner.animate({
-              top: [ 4, "swing" ]
+              top: [ 12, "swing" ]
             }, 200);
           }, 360);
 
           setTimeout(function(){
             placeholder.hide();
             mainHeader.show();
-          }, 360);
+          }, 300);
           mainHeader.animate({
-            height: [ 800, "swing" ],
+            height: [ 600, "swing" ],
             top: 0
           }, 1400, function() {
             // Animation complete.
@@ -252,9 +252,13 @@ function _animateVideosSlider(wrapper) {
 }
 
 $(document).ready(function() {
-  embed("dj-faze");
+  //embed("scWidget");
   //parallax effect
-  $('#scene').parallax();
+  var sceneEl = $('#scene');
+  sceneEl.parallax();
+  //sceneEl.find('li#vinil').click(function() {
+  //  alert(0);
+  //});
   $('.paralax__images a#close_banner').click(function(ev) {
     $(this).addClass('hidden');
     _animateBanner(true);

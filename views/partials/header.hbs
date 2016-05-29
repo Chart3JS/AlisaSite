@@ -34,13 +34,13 @@
 <section class="header-main {{#if showBanner}}paralax{{/if}}{{#if showVideoBanner}}video{{/if}} space-bottom-2x">
     <div class="header_i">
         {{#if showVideoBanner}}
-          <div class="section-top__video">
-              <div class="img-placeholder" style="background-image: url(/video/video-placeholder.jpg);"></div>
-              <video autoplay="autoplay" preload="auto" loop="loop">
-                  <source src="video/364831.mp4" type="video/mp4" />
-                  <!--<source src="video/bg2.webm" type="video/ogg" />-->
-              </video>
-          </div>
+          <!--<div class="section-top__video">-->
+              <!--<div class="img-placeholder" style="background-image: url(/video/video-placeholder.jpg);"></div>-->
+              <!--<video autoplay="autoplay" preload="auto" loop="loop">-->
+                  <!--&lt;!&ndash;<source src="video/364831.mp4" type="video/mp4" />&ndash;&gt;-->
+                  <!--&lt;!&ndash;<source src="video/bg2.webm" type="video/ogg" />&ndash;&gt;-->
+              <!--</video>-->
+          <!--</div>-->
           {{/if}}
 
       {{#if showBanner}}
@@ -51,21 +51,18 @@
             <!--</video>-->
             <a id="close_banner" class="fa fa-close" style="z-index: 100"></a>
             <ul id="scene" class="scene">
-                <li class="layer center" data-depth="0.05"><img src="/img/paralax/alisa_w1.png" alt="#">
+                <li class="layer center" data-depth="0.06"><img src="/img/paralax/alisa.png" alt="Alisa Plotkin">
                 </li>
-                <li class="layer img korg" data-depth="-0.80"><img src="/img/paralax/korg.png" alt="#">
+                <li id="vinil" class="layer img vinil" data-depth="-0.4"><a title="{{t "audio_title"}}" href="#audio"><img src="/img/paralax/vinil.png" alt="vinil"></a>
                 </li>
-                <li class="layer img notes" data-depth="0.70"><img src="/img/paralax/notes.png" alt="#">
+                <li class="layer img logo" data-depth="0.02"><img src="/img/paralax/logo.png" alt="Alisa Plotkin logo">
                 </li>
-                <li class="layer img braun" data-depth="-0.60"><img src="/img/paralax/braun.png" alt="#">
+                <li class="layer img camera" data-depth="-0.1"><a title="{{t "video_title"}}" href="#video"><img src="/img/paralax/camera.png" alt="camera"></a>
                 </li>
-                <li class="layer img headphones" data-depth="-0.80"><img src="/img/paralax/headphones.png" alt="#">
+                <li class="layer img collage" data-depth="-0.3"><a title="{{t "photos_title"}}" href="#photos"><img src="/img/paralax/collage.png" alt="collage"></a>
                 </li>
-                <li class="layer img shure" data-depth="1.00"><img src="/img/paralax/shure.png" alt="#">
-                </li>
-                <li class="layer img alisa-name" data-depth="0.10">
-                    <h2 class="alisa-name">{{t "alisa_name"}}</h2>
-                </li>
+                <!--<li class="layer img shure" data-depth="1.00"><img src="/img/paralax/shure.png" alt="#">-->
+                <!--</li>-->
             </ul>
         </div>
         {{/if}}
