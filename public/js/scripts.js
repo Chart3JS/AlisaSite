@@ -1,29 +1,9 @@
-/*
- * Creative Blog & Portfolio Theme
- * Copyright 2015 8Guild.com
- * Custom scripts for Creative Theme
- */
-
 /* Disable default link behavior for dummy links that have href='#'
  *********************************************************************/
 $('a[href=#], .update a').click(function(e) {
   e.preventDefault();
 });
 
-//SC.initialize({
-//  client_id: '24e4f5a6a6eb2b39a34bb53c60270526'
-//});
-//var track_url = 'https://soundcloud.com/alisa-plotkin/je-suis-malade';
-//function embed (id) {
-//  SC.oEmbed(track_url,
-//    { color: "ff0066"
-//      , auto_play: true
-//      , maxwidth: 500
-//      , maxheight: 1000
-//      , show_comments: true } // options
-//    , document.getElementById(id) // what element to attach player to
-//  );
-//}
 //verge is a compact set of cross-browser viewport utilities packed into an opensource JavaScript module
 jQuery.extend(verge);
 var desktop = true,
@@ -98,25 +78,6 @@ var mainHeader = $('.header-main');
 var bannerControl = $('.control-banner');
 var placeholder = $('div#banner-placeholder');
 
-function _animateNotes(isAnimated) {
-  var notesContainer = $('ul#dancing-notes');
-  var notes = notesContainer.find('li');
-  var counter = 0;
-  if(!!isAnimated) {
-    notesContainer.show();
-    notes.each(function() {
-      $(this).css('-webkit-animation','music 1s '+counter+'00ms  ease-in-out both infinite');
-      counter++;
-    });
-  } else {
-    notesContainer.hide();
-    notes.each(function() {
-      $(this).css('-webkit-animation','none');
-    });
-  }
-
-}
-
 function _animateBanner(showAnimation, completed) {
   completed = completed || function() {};
   var mainHeaderHeight = !!mobile?70:130;
@@ -135,12 +96,9 @@ function _animateBanner(showAnimation, completed) {
         top: -230
       }, 600, function() {
         bannerControl.unbind('click');
-        _animateNotes(true);
         bannerControl.click(function() {
           isBannerShown = true;
-          _animateNotes(false);
           setTimeout(function() {
-
             var close_banner = $('.paralax__images a#close_banner');
             close_banner.css({top: -100});
             close_banner.removeClass('hidden');
@@ -148,7 +106,6 @@ function _animateBanner(showAnimation, completed) {
               top: [ 12, "swing" ]
             }, 200);
           }, 360);
-
           setTimeout(function(){
             placeholder.hide();
             mainHeader.show();
@@ -158,24 +115,15 @@ function _animateBanner(showAnimation, completed) {
             top: 0
           }, 1400, function() {
             // Animation complete.
-
             bannerControl.unbind('click');
             bannerControl.animate({
               top: -323
             }, 800, function() {
-              //_toggleBanner();
             });
           })
         });
       });
     });
-}
-
-function _toggleBanner() {
-
-  if(!!isBannerShown && mainHeader && mainHeader.length !== 0) {
-    setTimeout(function() {_animateBanner(true);}, 18000);
-  }
 }
 
 function _bindVideos() {
@@ -248,22 +196,16 @@ function _animateVideosSlider(wrapper) {
     }
     $(imageWrappers[nextShownImageIndex]).removeClass('hidden');
   });
-
 }
 
 $(document).ready(function() {
-  //embed("scWidget");
   //parallax effect
   var sceneEl = $('#scene');
   sceneEl.parallax();
-  //sceneEl.find('li#vinil').click(function() {
-  //  alert(0);
-  //});
   $('.paralax__images a#close_banner').click(function(ev) {
     $(this).addClass('hidden');
     _animateBanner(true);
   });
-  //_toggleBanner();
   _bindVideos();
   var wrapper = $('div#videos-swiper-wrapper');
   setInterval(function() {
@@ -290,9 +232,7 @@ $(document).ready(function() {
         if (!block.hasClass('animate-active')) {
           block.addClass('animate-active').trigger('appear');
         }
-
       } else {
-        //block.removeClass('animate-active');
       }
       if ($('.bar__i.animate-active').length) {
         $('.bar').find('.bar__i ').each(function() {
@@ -346,23 +286,8 @@ $(document).ready(function() {
         });
 
       }
-      //ev.preventDefault();
-      //ev.stopPropagation();
     });
   });
-  //menu tablet & mobile
-  if (!desktop) {
-    $('.menu-main .drop').on('click', function(e) {
-      //e.preventDefault();
-      //var $this = $(this).closest('li').find('ul');
-      //if ($this.hasClass('active')) {
-      //  $this.removeClass('active');
-      //} else {
-      //  $this.addClass('active');
-      //}
-
-    });
-  }
 
   // User quotes carousel
   $('.time-line_i .swiper-container').each(function() {

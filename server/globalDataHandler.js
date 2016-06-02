@@ -1,28 +1,16 @@
 var fs = require('fs'),
   _ = require('lodash'),
   moment = require('moment'),
-  https = require('https'),
-  SoundCloudAPI = require('./sc_data_provider');
-//var SoundCloudAPI = require("node-soundcloud");
+  https = require('https');
 var LOCALES_PATH = 'locales';
 const FB_EVENTS_API_URL = 'https://graph.facebook.com/v2.5/#page_id#/events?access_token=#access_token#&debug=all&format=json&method=get&pretty=0&suppress_http_code=1&fields=cover,name,description,place,start_time';
 const FB_VIDEOS_API_URL = 'https://graph.facebook.com/v2.5/#page_id#/videos?access_token=#access_token#&debug=all&fields=event,content_category,place,permalink_url,id,description,backdated_time_granularity,source,likes,thumbnails,updated_time&format=json&method=get&pretty=0&suppress_http_code=1';
 const FB_FEEDS_API_URL = 'https://graph.facebook.com/v2.5/#page_id#/feed?access_token=#access_token#&debug=all&fields=application,call_to_action,child_attachments,coordinates,created_time,description,link,feed_targeting&include_hidden=true';
-const POSTS_API_ADDRESS = 'https://public-api.wordpress.com/rest/v1.1/sites/ilovesingblog.wordpress.com/';
 const FB_PAGE_ALBUMS_API_URL = 'https://graph.facebook.com/v2.6/#page_id#?access_token=#access_token#&debug=all&fields=albums%7Bcount%2Clink%2Clocation%2Cname%2Cid%7D&format=json&method=get&pretty=0&suppress_http_code=1';
 const FB_ALBUM_PHOTOS_API_URL = 'https://graph.facebook.com/v2.6/#album_id#?access_token=#access_token#&debug=all&fields=photos%7Bheight%2Cfrom%2Cid%2Cimages%2Cwidth%2Clink%7D&format=json&method=get&pretty=0&suppress_http_code=1';
 const YOUTUBE_VIDEO_LINK_TEMPLATE = 'https://www.youtube.com/embed/';
-/*var initOAuth = function(req, res) {
-  var url = SC.getConnectUrl();
-
-  res.writeHead(301, {Location: url});
-  res.end();
-};*/
 module.exports = {
   initData: function(calback) {
-    //var scClient = new SoundCloudAPI('24e4f5a6a6eb2b39a34bb53c60270526', '4ed02ac34cfd8f03aa9f091e0479cc21');
-    //debugger;
-    SoundCloudAPI.init();
     var pages = require('../config/pages');
     var config = require('../config/config.json');
     var dictionaries = fs.readdirSync(LOCALES_PATH);
@@ -64,8 +52,8 @@ module.exports = {
         var videosMapping = require('../config/video_fb_yt_mapping.json');
         _.each(videos, function(video) {
           var youtubeVideoId = videosMapping[video.id];
+          video.fb_source = video.source;
           if(!_.isUndefined(youtubeVideoId)) {
-            video.fb_source = video.source;
             video.source = YOUTUBE_VIDEO_LINK_TEMPLATE + youtubeVideoId;
             video.videoSourceType = 'yt';
           } else {
@@ -116,10 +104,10 @@ module.exports = {
         });
 
       }, function(err) {
-        //debugger;
+        console.error(err);
       });
   }, function(err) {
-      //debugger;
+      console.error(err);
     });
 
   }
