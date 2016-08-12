@@ -83,20 +83,24 @@ module.exports = {
               var albumUrl = FB_ALBUM_PHOTOS_API_URL.replace("#access_token#", config.facebook.access_token).
               replace("#album_id#", album.id);
               _retrieveData(albumUrl, {}, function(photosData) {
-                var albumPhotos = photosData.photos.data;
-                photos = _.concat(photos, albumPhotos);
-                albumsCounter++;
-                if(albumsCount === albumsCounter) {
-                  console.log("############## THE SERVER IS UP #############");
-                  calback({
-                    config: config,
-                    pages: pages,
-                    sysDictionary: sysDictionary,
-                    photos: photos,
-                    events: events,
-                    videos: videos,
-                    audio: soundCloudTraks
-                  });
+                if(!_.isEmpty(photosData.photos)) {
+                  var albumPhotos = photosData.photos.data;
+                  photos = _.concat(photos, albumPhotos);
+                  albumsCounter++;
+                  if(albumsCount === albumsCounter) {
+                    console.log("############## THE SERVER IS UP #############");
+                    calback({
+                      config: config,
+                      pages: pages,
+                      sysDictionary: sysDictionary,
+                      photos: photos,
+                      events: events,
+                      videos: videos,
+                      audio: soundCloudTraks
+                    });
+                  }
+                } else {
+                  albumsCounter++;
                 }
               });
             }
