@@ -97,23 +97,27 @@ module.exports = {
                       events: events,
                       videos: videos,
                       audio: soundCloudTraks
-                    });
+                    }, null);
                   }
                 } else {
                   albumsCounter++;
                 }
+              }, function(err) {
+                calback (null, err);
               });
             }
+          }, function(err) {
+            calback (null, err);
           });
+        }, function(err) {
+          calback (null, err);
         });
-
       }, function(err) {
-        console.error(err);
+        calback (null, err);
       });
   }, function(err) {
-      console.error(err);
+      calback (null, err);
     });
-
   }
 };
 
@@ -137,7 +141,7 @@ function _retrieveData(URL_TEMPLATE, options, success, fail) {
 
 });
 }).on('error', function(e) {
-    console.error("Got an error: ", e);
+    //console.error("Got an error: ", e);
   fail(e);
 });
 }
