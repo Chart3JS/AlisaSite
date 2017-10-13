@@ -25,7 +25,8 @@ module.exports = {
     _retrieveData(fbPageEvents, {}, function(eventsResponse) {
       var nowTime = (new Date()).getTime();
       // sort events in ascending order by start time
-      var events = eventsResponse.data.sort(function(ev1, ev2) {
+      var events = (!_.isArray(eventsResponse.data)) ? [] : eventsResponse.data;
+      var events = events.sort(function(ev1, ev2) {
         return (new Date(ev1.start_time)) - (new Date(ev2.start_time));
       });
       _.each(events, function(event){
