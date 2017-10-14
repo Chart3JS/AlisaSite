@@ -38,7 +38,7 @@ try {
         } catch(ee) {
           console.log('FB is unreachable ' + ee);
         }
-      }, 300000);
+      }, 3000000);
       app.use(logger('dev'));
       app.use(bodyParser.json());
       app.use(bodyParser.urlencoded({ extended: false }));
