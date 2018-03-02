@@ -27,6 +27,11 @@ module.exports = {
       var globals = _getGlobal(req);
       res.render('tou', { title: res.__('main_text_title'), globals: globals });
     });
+    router.get('/privacy', function(req, res, next) {
+      // the main page
+      var globals = _getGlobal(req);
+      res.render('privacy', { title: res.__('main_text_title'), globals: globals });
+    });
 
     router.get('/articles/:pageName', function(req, res, next) {
       _getPage(req, res, next);
